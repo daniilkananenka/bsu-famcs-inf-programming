@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main()
+int main ()
 {
 	int firstNum, secondNum;
 	std::cout << "Input first number (int):" << std::endl;
@@ -8,7 +8,7 @@ int main()
 	std::cout << "Input second number (int):" << std::endl;
 	std::cin >> secondNum;
 
-	std::cout << "First is " << firstNum << 
+	std::cout << "First is " << firstNum <<
 		"; Second is " << secondNum << std::endl;
 
 	if (firstNum > secondNum) {

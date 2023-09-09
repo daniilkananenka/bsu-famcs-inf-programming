@@ -1,7 +1,7 @@
 #include <iostream>
 #include<windows.h>
 
-int main()
+int main ()
 {
     SetConsoleOutputCP (1251);
     SetConsoleCP (1251);
@@ -42,7 +42,7 @@ int main()
         }
     }
 
-    std::cout << "Мы нашли " << mashroomNumber << 
+    std::cout << "Мы нашли " << mashroomNumber <<
         " гриб" << wordEnding << " в лесу" << std::endl;
 
     return 0;

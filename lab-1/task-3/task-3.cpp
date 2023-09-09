@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main()
+int main ()
 {
 	int firstNum, secondNum, thirdNum;
 
@@ -11,17 +11,17 @@ int main()
 	std::cout << "Input third number (int):" << std::endl;
 	std::cin >> thirdNum;
 
-	int firstSecondSum{ firstNum + secondNum }, 
-		firstThirdSum{ firstNum + thirdNum }, 
-		secondThirdSum{ secondNum + thirdNum };
+	int firstSecondSum { firstNum + secondNum },
+		firstThirdSum { firstNum + thirdNum },
+		secondThirdSum { secondNum + thirdNum };
 	if (firstSecondSum >= firstThirdSum && firstSecondSum >= secondThirdSum) {
-		std::cout << "Max. sum is " << firstSecondSum << 
+		std::cout << "Max. sum is " << firstSecondSum <<
 			" (first + second; " << firstNum << " + " << secondNum << ")" << std::endl;
 	} else if (firstThirdSum >= firstSecondSum && firstThirdSum >= secondThirdSum) {
-		std::cout << "Max. sum is " << firstThirdSum << 
+		std::cout << "Max. sum is " << firstThirdSum <<
 			" (first + third; " << firstNum << " + " << thirdNum << ")" << std::endl;
 	} else {
-		std::cout << "Max. sum is " << secondThirdSum << 
+		std::cout << "Max. sum is " << secondThirdSum <<
 			" (second + third; " << secondNum << " + " << thirdNum << ")" << std::endl;
 	}
 

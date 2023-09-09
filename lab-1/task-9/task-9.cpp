@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int main()
+int main ()
 {
 	int monthNumber;
 	std::string season;
@@ -11,7 +11,7 @@ int main()
 
 	switch (monthNumber) {
 		case 12:
-		case 1: 
+		case 1:
 		case 2:
 		{
 			season = "Winter";

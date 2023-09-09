@@ -1,8 +1,8 @@
 #include <iostream>
 
-int main()
+int main ()
 {
-    int firstNum, secondNum, thirdNum;
+	int firstNum, secondNum, thirdNum;
 
 	std::cout << "Input first number (int):" << std::endl;
 	std::cin >> firstNum;
