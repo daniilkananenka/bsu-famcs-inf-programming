@@ -10,7 +10,7 @@ struct Date
 
 enum class Month
 {
-	January,
+	January = 1,
 	February,
 	March,
 	April,
@@ -24,23 +24,6 @@ enum class Month
 	December
 };
 
-enum class MonthDayDuration
-{
-	January = 31,
-	FebruaryDefault = 28,
-	FebruaryLeapYear = 29,
-	March = 31,
-	April = 30,
-	May = 31,
-	June = 30,
-	July = 31,
-	August = 31,
-	September = 30,
-	October = 31,
-	November = 30,
-	December = 31
-};
-
 std::string dateToString(Date& date)
 {
 	std::string result = std::to_string(date.Day) + "/" +
@@ -52,82 +35,35 @@ std::string dateToString(Date& date)
 bool checkIsLeapYear(int year)
 {
 	if (year % 4 == 0) {
-		if (year % 100 == 0 && year % 400 != 0) {
+		if (year % 400 == 0) {
 			return true;
-		} else if (year % 100 == 0 && year % 400 == 0) {
+		} else if (year % 100 == 0) {
 			return false;
 		} else {
 			return true;
 		}
-	} else {
-		return false;
 	}
+
+	return false;
 }
 
 int getMonthDuration(int month, bool isLeapYear)
 {
-	int monthDayDuration;
-	switch (static_cast<Month>(month - 1)) {
-		case Month::January:
+	switch (static_cast<Month>(month)) {
+		case Month::January: case Month::March: case Month::May:
+		case Month::July: case Month::August: case Month::October:
+		case Month::December:
 		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::January);
-			break;
+			return 31;
+		}
+		case Month::April: case Month::June: case Month::September:
+		case Month::November:
+		{
+			return 30;
 		}
 		case Month::February:
 		{
-			monthDayDuration = static_cast<int>(isLeapYear ? MonthDayDuration::FebruaryLeapYear :
-				MonthDayDuration::FebruaryDefault);
-			break;
-		}
-		case Month::March:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::March);
-			break;
-		}
-		case Month::April:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::April);
-			break;
-		}
-		case Month::May:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::May);
-			break;
-		}
-		case Month::June:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::June);
-			break;
-		}
-		case Month::July:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::July);
-			break;
-		}
-		case Month::August:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::August);
-			break;
-		}
-		case Month::September:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::September);
-			break;
-		}
-		case Month::October:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::October);
-			break;
-		}
-		case Month::November:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::November);
-			break;
-		}
-		case Month::December:
-		{
-			monthDayDuration = static_cast<int>(MonthDayDuration::December);
-			break;
+			return isLeapYear ? 29 : 28;
 		}
 		default:
 		{
@@ -136,8 +72,6 @@ int getMonthDuration(int month, bool isLeapYear)
 			return 0;
 		}
 	}
-
-	return monthDayDuration;
 }
 
 int getDateDistanceInDays(Date& firstDate, Date& secondDate)
