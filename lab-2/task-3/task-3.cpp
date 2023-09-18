@@ -1,19 +1,50 @@
 #include <iostream>
+#include <string>
 
-int main ()
+int main()
 {
-    int n;
+	int monthNumber;
+	std::string season;
 
-    std::cout << "Input n(int, n > 0):" << std::endl;
-    std::cin >> n;
+	std::cout << "Input month number:" << std::endl;
+	std::cin >> monthNumber;
 
-    int digitsSum = 0;
-    while (n != 0) {
-        digitsSum += n % 10;
-        n /= 10;
-    }
+	switch (monthNumber) {
+		case 12:
+		case 1:
+		case 2:
+		{
+			season = "Winter";
+			break;
+		}
+		case 3:
+		case 4:
+		case 5:
+		{
+			season = "Spring";
+			break;
+		}
+		case 6:
+		case 7:
+		case 8:
+		{
+			season = "Summer";
+			break;
+		}
+		case 9:
+		case 10:
+		case 11:
+		{
+			season = "Autumn";
+			break;
+		}
+	}
 
-    std::cout << "Sum of digits is " << digitsSum << std::endl;
+	if (season != "") {
+		std::cout << "Season is " << season << std::endl;
+	} else {
+		std::cout << "Incorrect month number!" << std::endl;
+	}
 
-    return 0;
+	return 0;
 }
