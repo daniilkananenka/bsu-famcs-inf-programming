@@ -40,6 +40,12 @@ std::pair<int, int> Rational::getMultiplierPair(int firstDenominator,
 	return result;
 }
 
+Rational::Rational()
+{
+	this->numerator = 1;
+	this->denominator = 1;
+}
+
 Rational::Rational(int numerator, int denominator)
 {
 	this->numerator = numerator;
@@ -89,7 +95,7 @@ void Rational::multByNumber(int number)
 	this->denominator *= number;
 }
 
-Rational& Rational::operator+(Rational& operand) const
+Rational Rational::operator+(Rational& operand) const
 {
 	int numeratorResult = this->getNumerator() * operand.getDenominator() +
 		operand.getNumerator() * this->getDenominator();
@@ -101,7 +107,7 @@ Rational& Rational::operator+(Rational& operand) const
 	return result;
 }
 
-Rational& Rational::operator*(Rational& operand) const
+Rational Rational::operator*(Rational& operand) const
 {
 	int numeratorResult = this->getNumerator() * operand.getNumerator();
 	int denominatorResult = this->getDenominator() * operand.getDenominator();
@@ -112,7 +118,7 @@ Rational& Rational::operator*(Rational& operand) const
 	return result;
 }
 
-Rational& Rational::operator/(Rational& operand) const
+Rational Rational::operator/(Rational& operand) const
 {
 	int numeratorResult = this->getNumerator() * operand.getDenominator();
 	int denominatorResult = this->getDenominator() * operand.getNumerator();
@@ -125,8 +131,8 @@ Rational& Rational::operator/(Rational& operand) const
 
 bool Rational::operator==(Rational& operand) const
 {
-	std::pair<int, int> multipliers =
-		this->getMultiplierPair(this->getDenominator(), operand.getDenominator());
+	std::pair<int, int> multipliers = this->getMultiplierPair(this->getDenominator(), 
+		operand.getDenominator());
 
 	return this->getNumerator() * multipliers.first ==
 		operand.getNumerator() * multipliers.second;
@@ -134,8 +140,8 @@ bool Rational::operator==(Rational& operand) const
 
 bool Rational::operator>(Rational& operand) const
 {
-	std::pair<int, int> multipliers =
-		this->getMultiplierPair(this->getDenominator(), operand.getDenominator());
+	std::pair<int, int> multipliers = this->getMultiplierPair(this->getDenominator(), 
+		operand.getDenominator());
 
 	return this->getNumerator() * multipliers.first >
 		operand.getNumerator() * multipliers.second;
@@ -143,11 +149,19 @@ bool Rational::operator>(Rational& operand) const
 
 bool Rational::operator<(Rational& operand) const
 {
-	std::pair<int, int> multipliers =
-		this->getMultiplierPair(this->getDenominator(), operand.getDenominator());
+	std::pair<int, int> multipliers = this->getMultiplierPair(this->getDenominator(), 
+		operand.getDenominator());
 
 	return this->getNumerator() * multipliers.first <
 		operand.getNumerator() * multipliers.second;
+}
+
+std::ostream& operator<<(std::ostream& stream, const Rational& rational)
+{
+	stream << "(" << rational.getNumerator() << "/" <<
+		rational.getDenominator() << ")";
+
+	return stream;
 }
 
 std::istream& operator>>(std::istream& stream, Rational& rational)
@@ -157,14 +171,6 @@ std::istream& operator>>(std::istream& stream, Rational& rational)
 	stream >> numerator >> denominator;
 	rational.setNumerator(numerator);
 	rational.setDenominator(denominator);
-
-	return stream;
-}
-
-std::ostream& operator<<(std::ostream& stream, const Rational& rational)
-{
-	stream << "(" << rational.getNumerator() << "/" <<
-		rational.getDenominator() << ")";
 
 	return stream;
 }

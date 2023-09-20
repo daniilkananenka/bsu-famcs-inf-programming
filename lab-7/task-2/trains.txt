@@ -1,0 +1,10 @@
+Minsk 25 0
+Homel 32 1
+Minsk 12 1
+Vitebsk 122 1
+Warsaw 234 0
+Brest 516 1
+Homel 127 0
+Homel 231 1
+Saint-Petersburg 201 0
+Brest 154 1

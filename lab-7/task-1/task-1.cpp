@@ -3,10 +3,12 @@
 
 int main()
 {
-    Rational a { 5, 6 };
-    Rational b { 18, 9 };
-
-    Rational sum { a + b };
+    Rational a, b;
+    
+    std::cout << "Inpupt first rational (format: numerator denumerator):" << std::endl;
+    std::cin >> a;
+    std::cout << "Inpupt second rational (format: numerator denumerator):" << std::endl;
+    std::cin >> b;
 
     std::cout << a << " + " << b << " = " << (a + b) << std::endl;
     std::cout << a << " * " << b << " = " << (a * b) << std::endl;
