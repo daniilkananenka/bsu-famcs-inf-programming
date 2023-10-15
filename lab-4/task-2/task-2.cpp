@@ -4,12 +4,33 @@
 
 int main()
 {
-    int array[] = { 1, 2, 3, 4, 5, 5, 2, 1, 1, 3, 4 };
+    int array[] = { 100, -100, -100, 2 };
+    const int n = std::size(array);
 
-    std::sort(std::begin(array), std::end(array));
+    int max_mult = array[0] * array[1] * array[2];
+    int a = array[0], b = array[1], c = array[2];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (j == i) {
+                continue;
+            }
+            for (int x = 0; x < n; x++) {
+                if (x == j || x == i) {
+                    continue;
+                }
 
-    int arraySize { std::size(array) };
-    int result = array[arraySize - 1] * array[arraySize - 2] * array[arraySize - 3];
+                int mult = array[i] * array[j] * array[x];
+                if (mult > max_mult) {
+                    max_mult = mult;
+                    a = array[i];
+                    b = array[j];
+                    c = array[x];
+                }
+            }
+        }
+    }
+    std::cout << "Max mult: " << max_mult << std::endl;
+    std::cout << "Nums: " << a << " " << b << " " << c << std::endl;
 
     return 0;
 }
