@@ -1,0 +1,14 @@
+div.page_code_style {
+font-family:monospace;
+border:1px solid #c3c3c3;
+background-color:#ffffff;
+border-radius:4px
+}
+
+span.page_code_style {
+font-family:monospace;
+// border:1px solid #c3c3c3;
+background-color:#ffffff;
+border-radius:4px
+}
+

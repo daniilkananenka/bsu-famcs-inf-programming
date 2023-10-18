@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0046)https://ejudge.179.ru/tasks/cpp/total/222.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="./vector_files/MathJax.js.Без названия"></script><script src="./vector_files/tex-svg.js.Без названия" async=""></script>
+<link rel="stylesheet" type="text/css" href="./vector_files/style.css">
+
+<title>Контейнер vector</title><script type="module" src="chrome-extension://jdkknkkbebbapilgoeccciglkfbmbnfm/hook.js"></script>
+<script src="./vector_files/chtml.js.Без названия" charset="UTF-8"></script><script src="./vector_files/tex.js.Без названия" charset="UTF-8"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-SVG-styles">
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+</style></head>
+<body>
+<h1>Контейнер vector</h1>
+
+<h2>Объявление вектора</h2>
+<p>Вектор в STL - это аналог массива, контейнер, который позволяет осуществлять доступ к элементам по индексам. Вектор является шаблоном, и объявляется, как все остальные шаблоны.</p>
+<p>Например, вектор целых чисел можно объявить так:</p>
+<div class="page_code_style">
+<p>vector &lt;int&gt; A;</p>
+</div>
+<p>При таком создании вектор является "пустым", не содержащим элементов. Можно сразу же объявить вектор некоторого фиксированного размера, если задать конструктор, указав в конструкторе количество элементов вектора:</p>
+<div class="page_code_style">
+<p>vector &lt;int&gt; A(n);</p>
+</div>
+<p>В этом случае значения элементов вектора будут нулевыми (а если элементами вектора являются не числа, а, например, строки или другие структуры данных, то элементы вектора будут принимать значения по умолчанию, то есть строки и вложенные вектора будут пустыми). При необходимости можно сразу же заполнить вектор некоторыми (одинаковыми), значениями, указав их в качестве второго параметра конструктора, например, для заполнения вектора значениями -1 можно его объявить так:</p>
+<div class="page_code_style">
+<p>vector&lt;int&gt; A(n, -1);</p>
+</div>
+<p>Для использования контейнера vector необходимо подключить заголовочный файл vector:</p>
+<div class="page_code_style">
+<p>#include&lt;vector&gt;</p>
+</div>
+
+<h2>Обращение к элементам вектора</h2>
+<p>К элементам вектора можно обращаться по индексу, например, так: <span class="page_code_style">A[i]</span>.</p>
+<p>Есть и другой способ обращения к элементу вектора с индексом i: использование метода at: <span class="page_code_style">A.at(i)</span>. Отличие метода at от обращения при помощи квадратных скобок в том, что при использовании метода at происходит проверка правильности индекса, и в случае выхода за границы вектора происходит ошибка исполнения. Это полезно при отладке программ.</p>
+<p>При обращении к элементам вектора при помощи квадратных скобок корректность индекса не проверяется, и в случае выхода за границы вектора дальнейшее поведение программы может быть непредсказуемым.</p>
+<p>Следует отметить, что работа с элементами вектора осуществляется медленнее, чем с элементами массива (даже при использовании квадратных скобок, то есть без проверки выхода за границы массива).</p>
+<p>Помимо этого у вектора есть метод front(), возвращающий ссылку на первый элемент и метод back(), возвращающий ссылку на последний элемент вектора.</p>
+
+<h2>Изменение размера вектора</h2>
+<p>Размер вектора можно узнать при помощи универсального метода size(), возвращающего для всех контейнеров в STL их размер. Также есть метод empty(), возвращающий логическое значение (true, если вектор пустой).</p>
+<p>Размер вектора можно изменить в любой момент, при помощи метода resize. У этого метода может быть один или два параметра. Вызов метода resize(n) изменяет размер вектора до n элементов (длина вектора может как уменьшится, так и увеличиться). Вызов метода resize(n, val) изменяет размер вектора до n элементов, и если при этом размер вектора увеличивается, то новые элементы получают значение, равное val.</p>
+<p>Очень часто бывает полезно добавлять элементы в конец вектора по одному и удалять элементы из конца вектора по одному. Для добавления нового элемента, равного val, в конец вектора, используется метод push_back(val). Для удаления последнего элемента вектора используется метод pop_back() - он не возвращает значения.</p>
+<p>Добавление элемента в конец вектора осуществляется в среднем за O(1). Это реализовано за счет того, что память для хранения элементов вектора выделяется "с запасом", то есть можно будет добавлять элементы по одному, пока не кончится запас памяти. Если запас памяти исчерпан, выделяется новая память, при этом "запас" размера вектора удваивается.</p>
+<p>Очистить вектор можно при помощи метода clear().</p>
+
+<h2>Вставка и удаление элементов в середину вектора</h2>
+<p>Метод erase позволяет удалять из середины вектора один или несколько элементов. Этот метод работает с итераторами. Подробней про его использование можно прочитать <a href="http://ru.cppreference.com/w/cpp/container/vector/erase">в документации</a>.</p>
+<p>Метод insert позволяет вставлять в середину вектора новый элемент, или несколько равных элементов, или другой вектор, или фрагмент другого вектора. Этот метод также работает с итераторами и про его использование можно прочитать <a href="http://ru.cppreference.com/w/cpp/container/vector/insert">в документации</a>.</p>
+<p>Поскольку вставка и удаление элементов требуют сдвига других элементов вектора, эти операции имеют линейную сложность, то есть выполняются за время, пропорциональное длине вектора.</p>
+
+<h2>Присваивание и сравнение векторов</h2>
+<p>Содержимое одного вектора можно целиком скопировать в другой вектор при помощи операции присваивания: <span class="page_code_style">A = B</span>.</p>
+<p>Также вектора можно сравнивать на равенство и неравенство (<span class="page_code_style">A == B</span>, <span class="page_code_style">A != B</span>), и сравнивать их содержимое в лексикографическом порядке (<span class="page_code_style">A &lt; B</span>, <span class="page_code_style">A &lt;= B</span>, <span class="page_code_style">A &gt; B</span>, <span class="page_code_style">A &gt;= B</span>).</p>
+
+<h2>Создание многомерных векторов</h2>
+<p>Элементами вектора могут быть и другие вектора. Например, можно сделать вектор, каждый элемент которого представляет собой вектор целых чисел:</p>
+<div class="page_code_style">
+<p>vector &lt; vector &lt;int&gt; &gt; a;</p>
+</div>
+<p>Тем самым, a[i] будет вектором целых чисел, а обращаться к j-му элементу вектора a[i] можно через a[i][j].</p>
+<p>Чтобы создать двумерный вектор размером n×m можно внешний вектор объявить размером n, а затем в цикле изменить размер каждого вложенного вектора:</p>
+<div class="page_code_style">
+<p>vector &lt; vector &lt;int&gt; &gt; a(n);</p>
+<p>for (int i = 0; i &lt; n; ++i)<br>&nbsp;&nbsp;&nbsp; a[i].resize(m);</p>
+</div>
+<p>Но можно сделать это и в одну строку, если передать вторым параметром для конструктора вектора конструктор, который создает вектор целых чисел длины m:</p>
+<div class="page_code_style">
+<p>vector &lt; vector &lt;int&gt; &gt; a(n, vector&lt;int&gt;(m));</p>
+</div>
+<p>Заметим, что размеры вложенных векторов могут изменяться и быть различными.</p>
+<p>Также можно создавать вектор из стеков, очередей, деков, можно создавать трехмерные векторы и т.д.</p>
+
+
+
+
+
+
+<svg id="MJX-SVG-global-cache" style="display: none;"><defs></defs></svg></body></html>
