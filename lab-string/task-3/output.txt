@@ -1,0 +1,9 @@
+int - 22
+for - 4
+if - 8
+const - 3
+return - 4
+break - 3
+continue - 1
+while - 5
+switch - 1

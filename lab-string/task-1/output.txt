@@ -1,0 +1,30 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+void InsertUnsignedWord(std::string& str);
+
+int main()
+{
+    std::ifstream fin("task-1.cpp");
+    std::ofstream fout("output.txt");
+
+    std::string current_line;
+    while (std::getline(fin, current_line)) {
+        InsertUnsignedWord(current_line);
+
+        fout << current_line << std::endl;
+    }
+
+    return 0;
+}
+
+void InsertUnsignedWord(std::string& str)
+{
+    size_t current_index = str.find("unsigned char");
+    while (current_index != std::string::npos) {
+        str.insert(current_index, "unsigned ");
+
+        current_index = str.find("unsigned char", current_index + 10);
+    }
+}
