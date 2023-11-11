@@ -1,20 +1,62 @@
-// task-4.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <cmath>
+#include <string>
+#include <iomanip>
+
+std::string getEnding(int n);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    double n;
+    std::cout << "Input money: ";
+    std::cin >> n;
+
+    double n_floor = std::floor(n);
+    double rational_part = (n - n_floor) * 100;
+    std::string rational_part_str = std::to_string(rational_part);
+
+    int integer_part = n_floor;
+    std::string integer_part_str{};
+    while (integer_part != 0) {
+        integer_part_str = std::to_string(integer_part % 1000) + " " + integer_part_str;
+        integer_part /= 1000;
+    }
+    std::cout << integer_part_str << "rubl" << getEnding(n_floor) << " " << std::setw(0) << rational_part << " kop." << std::endl;
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+std::string getEnding(int n)
+{
+    std::string wordEnding;
+    switch (n % 10) {
+        case 1:
+        {
+            if (n % 100 == 11) {
+                wordEnding = "ey";
+            } else {
+                wordEnding = "";
+            }
+            break;
+        }
+        case 2:
+        case 3:
+        case 4:
+        {
+            if (n % 100 == 12 ||
+                n % 100 == 13 ||
+                n % 100 == 14) {
+                wordEnding = "ey";
+            } else {
+                wordEnding = "ia";
+            }
+            break;
+        }
+        default:
+        {
+            wordEnding = "ey";
+            break;
+        }
+    }
+    return wordEnding;
+}
