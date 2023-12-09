@@ -14,10 +14,10 @@ int main() {
     std::cout << "-----------Airplanes-----------" << std::endl;
     airline.PrintAll(std::cout);
     std::cout << "-----------Airplanes (SORTED BY FUEL)-----------" << std::endl;
-    airline.SortBy(comparators::kByFuel);
+    airline.Sort(comparators::kByFuel);
     airline.PrintAll(std::cout);
     std::cout << "-----------Airplanes (SORTED BY MAX SPEED)-----------" << std::endl;
-    airline.SortBy(comparators::kByMaxSpeed);
+    airline.Sort(comparators::kByMaxSpeed);
     airline.PrintAll(std::cout);
     std::cout << "-----------Airplane (100 t. < FUEL < 260 t.)-----------" << std::endl;
     std::optional<AirplanePtr> airplane_by_criteria = airline.First(

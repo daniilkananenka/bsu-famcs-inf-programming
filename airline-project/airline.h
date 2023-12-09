@@ -42,7 +42,7 @@ class Airline {
     void RemoveAllAirplanes();
 
     template <class Comparator>
-    void SortBy(Comparator comp);
+    void Sort(Comparator comp);
 
     template <class Predicate>
     std::optional<AirplanePtr> First(Predicate predicate);
@@ -52,7 +52,7 @@ class Airline {
 };
 
 template <class Comparator>
-inline void Airline::SortBy(Comparator comp) {
+inline void Airline::Sort(Comparator comp) {
     std::sort(airplanes_.begin(), airplanes_.end(), std::move(comp));
 }
 
