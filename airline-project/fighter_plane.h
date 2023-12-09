@@ -45,7 +45,7 @@ inline void FighterPlane::SetIsStealth(bool value) {
 inline std::ostream& FighterPlane::Print(std::ostream& out) const {
     Airplane::Print(out);
     out << "Missiles number: " << missiles_ << std::endl
-        << "Is stealth" << (is_stealth_ ? "YES" : "NO") << std::endl;
+        << "Is stealth: " << (is_stealth_ ? "YES" : "NO") << std::endl;
     return out;
 }
 
