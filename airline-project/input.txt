@@ -1,0 +1,9 @@
+P	Boeing-737	    2	850	    5       100   
+P	Airbus-A320	    2	830	    4.8     140
+P	Embraer-E190	2	820	    3       200
+C	Antonov-An-225	6	800	    250     70
+C	Lockheed-C-130	4	620	    20      30
+C	Boeing-747-8F	2	910	    60      40
+F	Sukhoi-Su-57	1	2500	10	    6	1
+F	Lockheed-F-22	1	2400	8	    8	1
+F	Dassault-Rafale	1	1900	4.7	    4	0
