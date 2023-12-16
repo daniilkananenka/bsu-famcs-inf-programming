@@ -4,9 +4,9 @@
 class Airplane {
    private:
     std::string model_{"Airplane"};
-    int crew_{7};
-    int max_speed_{900};
-    double fuel_{50};
+    int crew_{};
+    int max_speed_{};
+    double fuel_{};
 
    public:
     virtual ~Airplane() = default;

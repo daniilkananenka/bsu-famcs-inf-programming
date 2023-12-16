@@ -4,7 +4,7 @@
 
 class PassengerPlane : public Airplane {
    private:
-    int capacity_{0};
+    int capacity_{};
 
    public:
     PassengerPlane() = default;

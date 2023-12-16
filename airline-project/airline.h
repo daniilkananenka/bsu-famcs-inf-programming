@@ -71,7 +71,7 @@ size_t Airline::Count(Predicate predicate) {
     return result;
 }
 
-inline std::shared_ptr<Airplane> GetAirpanePtr(char type) {
+inline std::shared_ptr<Airplane> GetAirplanePtr(char type) {
     switch (type) {
         case 'P':
             return std::make_shared<PassengerPlane>();
@@ -93,7 +93,7 @@ inline void Airline::PrintAll(std::ostream& out) const {
 inline void Airline::ReadAll(std::istream& in) {
     char type{};
     while (in >> type) {
-        std::shared_ptr<Airplane> airplane = GetAirpanePtr(type);
+        std::shared_ptr<Airplane> airplane = GetAirplanePtr(type);
         in >> airplane;
 
         airplanes_.push_back(airplane);

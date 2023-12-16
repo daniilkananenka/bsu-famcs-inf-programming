@@ -4,7 +4,7 @@
 
 class CargoPlane : public Airplane {
    private:
-    double cargo_{40};
+    double cargo_{};
 
    public:
     CargoPlane() = default;

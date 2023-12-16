@@ -12,6 +12,7 @@ void PrintStack(Vector<T>& arr) {
 
 int main() {
     Vector<int> arr = {1, 2, 3, 4, 5};
+    arr.Erase(0);
     PrintStack(arr);
     arr.Insert(34, 3);
     PrintStack(arr);
