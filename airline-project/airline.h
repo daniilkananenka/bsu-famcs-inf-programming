@@ -85,9 +85,7 @@ inline std::shared_ptr<Airplane> GetAirplanePtr(char type) {
 }
 
 inline void Airline::PrintAll(std::ostream& out) const {
-    std::copy(airplanes_.begin(),
-			airplanes_.end(),
-			std::ostream_iterator<AirplanePtr>(out));
+    std::copy(airplanes_.begin(), airplanes_.end(), std::ostream_iterator<AirplanePtr>(out));
 }
 
 inline void Airline::ReadAll(std::istream& in) {
