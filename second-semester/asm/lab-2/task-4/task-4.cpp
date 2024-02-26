@@ -1,11 +1,10 @@
 #include <iostream>
-using namespace std;
 
 int main()
 {
     int num, lower{}, upper{};
-    cout << "Enter a natural number: ";
-    cin >> num;
+    std::cout << "Enter a natural number: ";
+    std::cin >> num;
     _asm
     {
         mov eax, num
@@ -21,6 +20,6 @@ int main()
             loop_end :
         mov upper, ecx
     }
-    cout << "The number is between 2^" << lower << " and 2^" << upper << endl;
+    std::cout << "The number is between 2^" << lower << " and 2^" << upper << std::endl;
     return 0;
 }

@@ -1,11 +1,10 @@
 #include <iostream>
-using namespace std;
 
 int main()
 {
     int num, sum{}, even{};
-    cout << "Input num: ";
-    cin >> num; 
+    std::cout << "Input num: ";
+    std::cin >> num;
 
     _asm
     {
@@ -30,8 +29,8 @@ int main()
         loop_end :
     }
 
-    cout << "Sum: " << sum << endl; 
-    cout << "Even count: " << even << endl;
+    std::cout << "Sum: " << sum << std::endl;
+    std::cout << "Even count: " << even << std::endl;
 
     return 0;
 }

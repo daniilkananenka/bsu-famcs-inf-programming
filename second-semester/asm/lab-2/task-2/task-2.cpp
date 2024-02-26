@@ -1,11 +1,10 @@
 #include <iostream>
-using namespace std;
 
 int main()
 {
     int num, den;
-    cout << "Enter the numerator and denominator of the fraction: ";
-    cin >> num >> den;
+    std::cout << "Enter the numerator and denominator of the fraction: ";
+    std::cin >> num >> den;
 
     int gcd{};
     _asm
@@ -33,7 +32,7 @@ int main()
             div gcd
             mov den, eax
     }
-    cout << "Reduced fraction: " << num << "/" << den << endl;
+    std::cout << "Reduced fraction: " << num << "/" << den << std::endl;
 
     return 0;
 }

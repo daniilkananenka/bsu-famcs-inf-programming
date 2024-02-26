@@ -1,11 +1,10 @@
 #include <iostream>
-using namespace std;
 
 int main()
 {
     int base, power, result;
-    cout << "Enter the base and power: ";
-    cin >> base >> power;
+    std::cout << "Enter the base and power: ";
+    std::cin >> base >> power;
     _asm
     {
         mov eax, 1
@@ -19,6 +18,6 @@ int main()
         loop_end :
             mov result, eax
     }
-    cout << "Result of exponentiation: " << result << endl;
+    std::cout << "Result of exponentiation: " << result << std::endl;
     return 0;
 }
