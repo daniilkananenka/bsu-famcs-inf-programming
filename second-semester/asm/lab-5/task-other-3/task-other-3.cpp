@@ -1,4 +1,4 @@
-// lab-6.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// task-other-3.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
@@ -18,31 +18,3 @@ int main()
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
-#include <iostream>
-
-int main()
-{
-	int a, b;
-	std::cout << "Input a, b for (ax + b = 0):" << std::endl;
-	std::cin >> a >> b;
-	if (a == 0 && b == 0) {
-		std::cout << "Infinity count of solutions" << std::endl;
-		return 0;
-	}
-	else if (a == 0 && b != 0) {
-		std::cout << "No solutions" << std::endl;
-		return 0;
-	}
-
-	int x{};
-	_asm {
-		mov eax, b
-		neg eax
-		cdq
-		idiv a
-		mov x, eax
-	}
-	std::cout << "Solution is " << x << std::endl;
-
-	return 0;
-}
