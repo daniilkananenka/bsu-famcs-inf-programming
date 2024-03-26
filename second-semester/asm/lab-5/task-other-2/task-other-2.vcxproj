@@ -131,7 +131,6 @@
     <ClCompile Include="task-other-2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FileName.asm" />
     <MASM Include="substr_index.asm">
       <FileType>Document</FileType>
     </MASM>
