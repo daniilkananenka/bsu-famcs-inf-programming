@@ -13,7 +13,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    Rational.h \
+    Storage.h \
     mainwindow.h
 
 FORMS += \

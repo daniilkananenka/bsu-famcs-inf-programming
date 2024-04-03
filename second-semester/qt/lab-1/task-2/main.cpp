@@ -1,12 +1,11 @@
-#include <QtWidgets>
-#include "ComplexCalculator.h"
+#include "mainwindow.h"
 
-int main(int argc, char** argv) {
-    QApplication app(argc, argv);
-    ComplexCalculator complexCalculator;
-    complexCalculator.setWindowTitle("Complex Calculator");
-    complexCalculator.resize(300, 300);
-    complexCalculator.show();
+#include <QApplication>
 
-    return app.exec();
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }
