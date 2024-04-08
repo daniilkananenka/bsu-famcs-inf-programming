@@ -7,7 +7,7 @@ _STR dd 0
 _SUBSTR dd 0
 _STR_SIZE dd 0
 _SUBSTR_SIZE dd 0
-temp dd 1
+_START dd 0
 
 .code 
 _FirstIn proc
@@ -28,21 +28,52 @@ mov _SUBSTR, eax
 mov eax, [esp + 16] ; substr_size
 mov _SUBSTR_SIZE, eax
 
-mov eax, _STR
-cmp eax, _SUBSTR ; equal address
-jl _zero_index_ret
+; XOR
+xor edx, edx
+xor eax, eax
+xor ebx, ebx
+xor ecx, ecx
+xor edi, edi
+xor esi, esi
+xor esp, esp
+xor ebp, ebp
 
-mov ebx, _STR
-sub ebx, _SUBSTR
-mov ecx, ebx
-inc ecx
+; Register init
+mov ecx, _STR_SIZE ; ecx - counter for string
+mov ebx, _SUBSTR_SIZE ; ebx - counter for substring
+mov esi, _STR ; esi - str
+mov edi, _SUBSTR ; edi - substr
+mov esp, -1 ; esp - index of first in of substr
+mov ebp, -1
 
+
+str_iterate:
+	mov al, [esi][ecx] ; al - current string char
+	mov ah, [edi][ebx] ; ah - current substring char
+	cmp al, ah
+	jne _not_equal_char
+	; str[i] == substr[j]
+	inc ecx ; next char of string
+	inc ebx ; next char of substring
+	jmp _continue
+
+	_not_equal_char: ; str[i] != substr[j]
+		
+		
+	_continue:
+		cmp ebx, _SUBSTR_SIZE ; if end of substring
+		je _end
+		cmp ecx, _STR_SIZE ; if end of string
+		je _end
+		jmp str_iterate
+		
+	
 
 _zero_index_ret:
 	mov eax,0
 	jmp _ret
-_endOne:
-	mov eax,1
+_end:
+	mov eax, esp
 _ret:
 	ret
 _FirstIn endp
