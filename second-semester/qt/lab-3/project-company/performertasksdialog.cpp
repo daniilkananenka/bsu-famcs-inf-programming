@@ -21,11 +21,21 @@ void PerformerTasksDialog::Connect() {
 
 void PerformerTasksDialog::onSearchClick() {
     std::string performer = ui->editPerformer->text().toStdString();
-    std::string result = ProjectService::ToString(projectService->FindAll([performer](const ProjectItem& item){
+    std::string result{};
+    auto [begin, end] = projectService->FindAll([performer](const ProjectItem& item){
         return item.Performer() == performer;
     }, [](const ProjectItem& a, const ProjectItem& b) {
         return a.Performer() < b.Performer();
-    }));
+    });
+
+    std::set<std::string> tasks;
+    while (begin != end) {
+        tasks.emplace((*begin).Task());
+        ++begin;
+    }
+    for (auto& i : tasks) {
+        result += i + "\n";
+    }
 
     ui->output->setText((new QString)->fromStdString(result));
 }

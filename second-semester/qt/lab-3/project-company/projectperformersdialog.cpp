@@ -20,12 +20,22 @@ void ProjectPerformersDialog::Connect() {
 }
 
 void ProjectPerformersDialog::onSearchClick() {
+    std::string result{};
     std::string project = ui->editProject->text().toStdString();
-    std::string result = ProjectService::ToString(projectService->FindAll([project](const ProjectItem& item){
+    auto [begin, end] = projectService->FindAll([project](const ProjectItem& item){
         return item.Title() == project;
     }, [](const ProjectItem& a, const ProjectItem& b) {
         return a.Title() < b.Title();
-    }));
+    });
+
+    std::set<std::string> performers;
+    while (begin != end) {
+        performers.emplace((*begin).Performer());
+        ++begin;
+    }
+    for (auto& i : performers) {
+        result += i + "\n";
+    }
 
     ui->output->setText((new QString)->fromStdString(result));
 }

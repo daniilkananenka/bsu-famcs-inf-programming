@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <functional>
+#include <set>
 #include "projectitem.h"
 
 using ProjectVector = std::vector<ProjectItem>;

@@ -21,11 +21,21 @@ void SupervisorProjectsDialog::Connect() {
 
 void SupervisorProjectsDialog::onSearchClick() {
     std::string supervisor = ui->editSupervisor->text().toStdString();
-    std::string result = ProjectService::ToString(projectService->FindAll([supervisor](const ProjectItem& item){
+    std::string result{};
+    auto [begin, end] = projectService->FindAll([supervisor](const ProjectItem& item){
         return item.Supervisor() == supervisor;
     }, [](const ProjectItem& a, const ProjectItem& b) {
         return a.Supervisor() < b.Supervisor();
-    }));
+    });
+
+    std::set<std::string> projects;
+    while (begin != end) {
+        projects.emplace((*begin).Title());
+        ++begin;
+    }
+    for (auto& i : projects) {
+        result += i + "\n";
+    }
 
     ui->output->setText((new QString)->fromStdString(result));
 }
