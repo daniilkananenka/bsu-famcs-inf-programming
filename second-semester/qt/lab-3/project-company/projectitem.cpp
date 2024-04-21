@@ -3,6 +3,13 @@
 Date::Date(QDate date) : day(date.day()), month(date.month()), year(date.year()) {
 }
 
+bool Date::operator<(const Date& rhs) const {
+    if (year != rhs.year) return year < rhs.year;
+    if (month != rhs.month) return month < rhs.month;
+
+    return day < rhs.day;
+}
+
 std::string ProjectItem::ToString() const {
     std::stringstream str_input;
     str_input << title_ << " " << task_ << " " << performer_ << " " << supervisor_ << " " <<

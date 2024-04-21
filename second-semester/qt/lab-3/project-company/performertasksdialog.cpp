@@ -22,7 +22,7 @@ void PerformerTasksDialog::Connect() {
 void PerformerTasksDialog::onSearchClick() {
     std::string performer = ui->editPerformer->text().toStdString();
     std::string result{};
-    auto [begin, end] = projectService->FindAll([performer](const ProjectItem& item){
+    auto [begin, end] = projectService->FindSequence([performer](const ProjectItem& item){
         return item.Performer() == performer;
     }, [](const ProjectItem& a, const ProjectItem& b) {
         return a.Performer() < b.Performer();

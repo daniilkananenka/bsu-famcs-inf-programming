@@ -22,8 +22,10 @@ public:
     void PrintInFile(const std::string) const;
 
     void Add(ProjectItem& item);
-    ProjectSequence FindAll(ProjectItemConditional, ProjectItemComparator);
+    ProjectSequence FindSequence(ProjectItemConditional, ProjectItemComparator);
     void Sort(ProjectItemComparator);
+
+    ProjectVector Where(ProjectItemConditional);
 
     std::string ToString() const;
     static std::string ToString(ProjectSequence);

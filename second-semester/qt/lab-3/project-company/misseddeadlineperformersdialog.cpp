@@ -20,12 +20,10 @@ void MissedDeadlinePerformersDialog::Connect() {
 }
 
 void MissedDeadlinePerformersDialog::onSearchClick() {
-//    std::string performer = ui->editProject->text().toStdString();
-//    std::string result = ProjectService::ToString(projectService->FindAll([performer](const ProjectItem& item){
-//        return item.Performer() == performer;
-//    }, [](const ProjectItem& a, const ProjectItem& b) {
-//        return a.Performer() < b.Performer();
-//    }));
+    ProjectVector items = projectService->Where([](const ProjectItem& item){
+        return item.DueDate() < item.Deadline();
+    });
 
-//    ui->output->setText((new QString)->fromStdString(result));
+    ProjectSequence sequance = std::make_pair(items.begin(), items.end());
+    ui->output->setText((new QString)->fromStdString(ProjectService::ToString(sequance)));
 }

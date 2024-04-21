@@ -22,7 +22,7 @@ void SupervisorProjectsDialog::Connect() {
 void SupervisorProjectsDialog::onSearchClick() {
     std::string supervisor = ui->editSupervisor->text().toStdString();
     std::string result{};
-    auto [begin, end] = projectService->FindAll([supervisor](const ProjectItem& item){
+    auto [begin, end] = projectService->FindSequence([supervisor](const ProjectItem& item){
         return item.Supervisor() == supervisor;
     }, [](const ProjectItem& a, const ProjectItem& b) {
         return a.Supervisor() < b.Supervisor();

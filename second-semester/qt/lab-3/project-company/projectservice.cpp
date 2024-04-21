@@ -38,7 +38,7 @@ std::string ProjectService::ToString(ProjectSequence sequance) {
     return result;
 }
 
-ProjectSequence ProjectService::FindAll(ProjectItemConditional condition, ProjectItemComparator comparator) {
+ProjectSequence ProjectService::FindSequence(ProjectItemConditional condition, ProjectItemComparator comparator) {
     Sort(comparator);
     auto begin = std::find_if(items.begin(), items.end(), condition);
     auto not_condition = [condition](const ProjectItem& item){
@@ -50,4 +50,14 @@ ProjectSequence ProjectService::FindAll(ProjectItemConditional condition, Projec
 
 void ProjectService::Sort(ProjectItemComparator comparator) {
     std::sort(items.begin(), items.end(), comparator);
+}
+
+ProjectVector ProjectService::Where(ProjectItemConditional condition) {
+    ProjectVector result;
+    for (auto& item : items) {
+        if (condition(item)) {
+            result.push_back(item);
+        }
+    }
+    return result;
 }

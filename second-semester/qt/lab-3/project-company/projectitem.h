@@ -21,6 +21,8 @@ struct Date {
     Date() = default;
     Date(QDate);
 
+    bool operator<(const Date&) const;
+
     std::string ToString(Pretty) const;
     std::string ToString() const;
 };

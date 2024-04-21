@@ -22,7 +22,7 @@ void ProjectPerformersDialog::Connect() {
 void ProjectPerformersDialog::onSearchClick() {
     std::string result{};
     std::string project = ui->editProject->text().toStdString();
-    auto [begin, end] = projectService->FindAll([project](const ProjectItem& item){
+    auto [begin, end] = projectService->FindSequence([project](const ProjectItem& item){
         return item.Title() == project;
     }, [](const ProjectItem& a, const ProjectItem& b) {
         return a.Title() < b.Title();
