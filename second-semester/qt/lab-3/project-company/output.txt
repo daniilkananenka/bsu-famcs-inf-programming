@@ -4,3 +4,4 @@ BSU Create-request Boris Andrew 1 1 2000 1 1 2000 1 1 2000
 CORS Add-items Daniil Alex 1 1 2000 1 1 2000 1 1 2000
 PLEX Delete-all Vlad Alex 1 1 2000 1 1 2000 1 1 2000
 BSU Create-request Boris Artem 1 1 2000 1 1 2000 1 1 2000
+PLEX Add-item Daniil Alex 1 1 2000 1 1 2000 1 1 2000
