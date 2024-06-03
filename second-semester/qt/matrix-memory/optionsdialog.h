@@ -24,6 +24,9 @@ private slots:
     void OnGenerateClick();
 
 private:
+    std::vector<std::vector<QColor>> GenerateColors(int field_size, int color_count, int level);
+    void makeLastStrOfVec(std::vector<std::vector<QColor>>&, int, std::vector<QColor>, int, int);
+
     Ui::OptionsDialog *ui;
     Options* options;
     Field* field;

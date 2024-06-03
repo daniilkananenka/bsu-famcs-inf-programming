@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>229</width>
-    <height>110</height>
+    <height>144</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>10</x>
      <y>10</y>
      <width>211</width>
-     <height>91</height>
+     <height>121</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -63,10 +63,39 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0" colspan="2">
+    <item row="3" column="0" colspan="2">
      <widget class="QPushButton" name="generateButton">
       <property name="text">
        <string>Start game</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSlider" name="levelSlider">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>3</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Level</string>
       </property>
      </widget>
     </item>
