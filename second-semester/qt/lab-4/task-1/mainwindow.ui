@@ -30,9 +30,9 @@
    <widget class="Diagram" name="diagram" native="true">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>40</y>
-      <width>601</width>
+      <width>621</width>
       <height>321</height>
      </rect>
     </property>

@@ -27,25 +27,16 @@ void Diagram::paintEvent(QPaintEvent* event) {
     painter.setPen(*pen);
 
     // RENDERING
-    double diagram_width = this->width();
-    double diagram_height = this->height();
+    double diagram_width = this->height();
+    double diagram_height = this->width();
     double interval = diagram_width / (points.size() + 1);
     double position_x = interval;
     for (auto i : points) {
         double height = (static_cast<double>(i) / max_height) * (diagram_height - 40);
-        painter.drawLine(position_x, diagram_height - height, position_x, diagram_height);
-        position_x += interval;
-    }
-
-    pen->setColor(Qt::black);
-    pen->setWidth(3);
-    painter.setPen(*pen);
-    position_x = interval - 10;
-    for (auto i : points) {
-        double height = (static_cast<double>(i) / max_height) * (diagram_height - 40);
-        painter.drawText(position_x, diagram_height - height - 20, (new QString())->fromStdString(std::to_string(i)));
+        painter.drawLine(height, position_x, 0, position_x);
         position_x += interval;
     }
 
     painter.end();
 }
+

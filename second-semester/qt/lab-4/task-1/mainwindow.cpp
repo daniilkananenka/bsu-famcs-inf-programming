@@ -22,3 +22,10 @@ void MainWindow::OnOpenDiagramClick() {
     this->update();
 }
 
+void MainWindow::resizeEvent(QResizeEvent* event)
+{
+    QMainWindow::resizeEvent(event);
+    ui->diagram->setMinimumWidth(this->width());
+    ui->diagram->setMaximumWidth(this->width());
+}
+
