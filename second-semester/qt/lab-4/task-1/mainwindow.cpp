@@ -27,5 +27,8 @@ void MainWindow::resizeEvent(QResizeEvent* event)
     QMainWindow::resizeEvent(event);
     ui->diagram->setMinimumWidth(this->width());
     ui->diagram->setMaximumWidth(this->width());
+
+    ui->diagram->setMinimumHeight(this->height() - 40);
+    ui->diagram->setMaximumHeight(this->height()-40);
 }
 
