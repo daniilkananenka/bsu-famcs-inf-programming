@@ -11,6 +11,8 @@ build
 *.sln.docstates
 build-*
 
+.vscode/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
