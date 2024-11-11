@@ -1,0 +1,6 @@
+----Programming----:
+POSTGRADUATE=<PERSON=<Andrew> STUDENT=<yj34, andrey@rambler.ru> ACADEMIC=<Cay Horstmann>>
+UNDERGRADUATE=<PERSON=<Boris> STUDENT=<gg4, boris@gmail.com> ACADEMIC=<Paul Deitel>>
+POSTGRADUATE=<PERSON=<Daniil> STUDENT=<te2, daniilkan@gmail.com> ACADEMIC=<Paul Deitel>>
+UNDERGRADUATE=<PERSON=<Polina> STUDENT=<pr3, polina@gmail.com> ACADEMIC=<Cay Horstmann>>
+POSTGRADUATE=<PERSON=<Vlad> STUDENT=<jj8, vlad@outlook.com> ACADEMIC=<Cay Horstmann>>
