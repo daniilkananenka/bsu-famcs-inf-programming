@@ -16,7 +16,7 @@ public class SimpleStrategy implements Strategy {
                 filteredStudents.add(student);
             }
         }
-        Collections.sort(filteredStudents, Comparator.comparing(Student::getId));
+        filteredStudents.sort(Comparator.comparing(Student::getId));
         return filteredStudents;
     }
 }

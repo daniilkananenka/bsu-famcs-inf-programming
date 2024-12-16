@@ -1,8 +1,17 @@
 import model.Student;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import strategy.Strategy;
 import strategy.StreamStrategy;
 
 import javax.swing.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamReader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -107,6 +116,84 @@ public class StudentApp {
         } catch (IOException e) {
             logArea.append("Error loading file: " + e.getMessage() + "\n");
         }
+    }
+
+    private void loadStudentsFromFileStAX(File file) {
+        students.clear();
+        try (InputStream in = new FileInputStream(file)) {
+            XMLInputFactory factory = XMLInputFactory.newInstance();
+            XMLStreamReader reader = factory.createXMLStreamReader(in);
+
+            String id = null, surname = null, group = null;
+            int course = 0;
+
+            while (reader.hasNext()) {
+                int event = reader.next();
+                if (event == XMLStreamConstants.START_ELEMENT) {
+                    switch (reader.getLocalName()) {
+                        case "student":
+                            id = null;
+                            surname = null;
+                            group = null;
+                            course = 0;
+                            break;
+                        case "id":
+                            id = reader.getElementText();
+                            break;
+                        case "surname":
+                            surname = reader.getElementText();
+                            break;
+                        case "course":
+                            course = Integer.parseInt(reader.getElementText());
+                            break;
+                        case "group":
+                            group = reader.getElementText();
+                            break;
+                    }
+                }
+                if (event == XMLStreamConstants.END_ELEMENT && "student".equals(reader.getLocalName())) {
+                    if (id != null && surname != null && group != null) {
+                        students.add(new Student(id, surname, course, group));
+                    }
+                }
+            }
+            reader.close();
+        } catch (Exception e) {
+            logArea.append("Error loading file with StAX: " + e.getMessage() + "\n");
+        }
+        displayStudents();
+        logArea.append("Loaded students from file with StAX: " + file.getName() + "\n");
+    }
+
+    private void loadStudentsFromFileDOM(File file) {
+        students.clear();
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(file);
+            doc.getDocumentElement().normalize();
+
+            NodeList nList = doc.getElementsByTagName("student");
+
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+
+                    String id = eElement.getElementsByTagName("id").item(0).getTextContent();
+                    String surname = eElement.getElementsByTagName("surname").item(0).getTextContent();
+                    int course = Integer.parseInt(eElement.getElementsByTagName("course").item(0).getTextContent());
+                    String group = eElement.getElementsByTagName("group").item(0).getTextContent();
+
+                    students.add(new Student(id, surname, course, group));
+                }
+            }
+        } catch (Exception e) {
+            logArea.append("Error loading file with DOM: " + e.getMessage() + "\n");
+        }
+        displayStudents();
+        logArea.append("Loaded students from file with DOM: " + file.getName() + "\n");
     }
 
     private void displayStudents() {

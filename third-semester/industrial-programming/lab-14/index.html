@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Динамическое меню</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    /* Стили для меню */
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      transition: all 0.3s ease;
+      font-size: 16px;
+    }
+    nav ul li:hover a {
+      background-color: #555;
+      font-size: 18px;
+    }
+    nav ul li:hover .submenu {
+      display: block;
+    }
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #444;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      z-index: 10;
+    }
+    .submenu li a {
+      padding: 10px 15px;
+      white-space: nowrap;
+    }
+    .submenu li a:hover {
+      background-color: #666;
+    }
+    /* Общие стили */
+    section {
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 30rem;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 0px auto;
+    }
+    form label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    form input, form select, form textarea {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form input[type="radio"], form input[type="checkbox"] {
+      width: auto;
+    }
+    form input[type="file"] {
+      padding: 5px;
+    }
+    form button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    form button.ok {
+      background-color: #28a745;
+      color: white;
+    }
+    form button.cancel {
+      background-color: #dc3545;
+      color: white;
+    }
+    .map-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    form .radio-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    form .form-property-name {
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#resume">Резюме</a></li>
+    <li><a href="#form">Форма</a></li>
+    <li><a href="#map">Карта</a></li>
+  </ul>
+</nav>
+
+<section id="resume">
+  <h1>Резюме</h1>
+  <p>Даниил Кононенко. Front-end developer в команде @tondevsby</p>
+  <table>
+    <tr>
+      <th>Навыки</th>
+      <th>Уровень</th>
+    </tr>
+    <tr>
+      <td>HTML/CSS</td>
+      <td>Эксперт</td>
+    </tr>
+    <tr>
+      <td>JavaScript</td>
+      <td>Продвинутый</td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>Продвинутый</td>
+    </tr>
+    <tr>
+      <td>Node.js</td>
+      <td>Средний</td>
+    </tr>
+  </table>
+</section>
+
+<!-- Задание B -->
+<section id="form">
+  <h1>Форма для ввода информации о студенте</h1>
+  <form>
+    <label class="form-property-name" for="name">Имя студента</label>
+    <input type="text" id="name" name="name" placeholder="Введите имя">
+
+    <label class="form-property-name" for="age">Возраст</label>
+    <input type="number" id="age" name="age" placeholder="Введите возраст">
+
+    <label for="gender" class="form-property-name">Пол</label>
+    <div class="radio-item">
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Мужской</label>
+    </div>
+    <div class="radio-item">
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Женский</label>
+    </div>
+    
+   
+
+    <label for="course" class="form-property-name">Курс</label>
+    <select id="course" name="course">
+      <option value="1">1 курс</option>
+      <option value="2">2 курс</option>
+      <option value="3">3 курс</option>
+      <option value="4">4 курс</option>
+    </select>
+
+    <label class="form-property-name" for="hobbies">Хобби</label>
+    <div class="radio-item">
+        <input type="checkbox" id="sports" name="hobbies" value="sports">
+        <label for="sports">Спорт</label>
+    </div>
+    <div class="radio-item">
+        <input type="checkbox" id="music" name="hobbies" value="music">
+        <label for="music">Музыка</label>
+    </div>
+    <div class="radio-item">
+        <input type="checkbox" id="reading" name="hobbies" value="reading">
+        <label for="reading">Чтение</label>
+    </div>
+
+    <label class="form-property-name" for="photo">Фотография</label>
+    <input type="file" id="photo" name="photo">
+
+    <div>
+      <button type="submit" class="ok">OK</button>
+      <button type="reset" class="cancel">Отмена</button>
+    </div>
+  </form>
+</section>
+
+<!-- Задание C -->
+<section id="map">
+  <h1>Карта</h1>
+  <div class="map-container">
+    <img src="https://via.placeholder.com/600x400" usemap="#imagemap" alt="Карта">
+    <map name="imagemap">
+      <area shape="rect" coords="0,0,300,200" href="#region1" alt="Регион 1">
+      <area shape="rect" coords="300,0,600,200" href="#region2" alt="Регион 2">
+      <area shape="rect" coords="0,200,300,400" href="#region3" alt="Регион 3">
+      <area shape="rect" coords="300,200,600,400" href="#region4" alt="Регион 4">
+    </map>
+  </div>
+  <section id="region1">
+    <h2>Регион 1</h2>
+    <p>Информация о регионе 1.</p>
+  </section>
+  <section id="region2">
+    <h2>Регион 2</h2>
+    <p>Информация о регионе 2.</p>
+  </section>
+  <section id="region3">
+    <h2>Регион 3</h2>
+    <p>Информация о регионе 3.</p>
+  </section>
+  <section id="region4">
+    <h2>Регион 4</h2>
+    <p>Информация о регионе 4.</p>
+  </section>
+</section>
+
+</body>
+</html>
