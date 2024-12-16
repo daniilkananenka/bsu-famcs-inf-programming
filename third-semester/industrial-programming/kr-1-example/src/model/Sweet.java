@@ -2,7 +2,7 @@ package model;
 
 public abstract class Sweet {
     private final String name;
-    private final double weight;
+    private final double weight; // Gram
     private final double sugarContent;
 
     public Sweet(String name, double weight, double sugarContent) {
