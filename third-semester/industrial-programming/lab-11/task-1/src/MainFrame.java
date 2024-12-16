@@ -24,10 +24,24 @@ public class MainFrame extends JFrame {
         add(keyDisplay);
         add(keyLogger);
 
-        addKeyListener(new KeyAdapter() {
+        // Создаем панель и добавляем к ней слушателя клавиш
+        JPanel panel = new JPanel();
+        panel.setFocusable(true);
+        panel.requestFocusInWindow();
+        panel.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyTyped(KeyEvent e) {
+            public void keyPressed(KeyEvent e) {
                 keySubject.notifyObservers(e.getKeyChar());
+            }
+        });
+
+        add(panel);
+
+        // Устанавливаем фокус на панель при отображении окна
+        addWindowFocusListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                panel.requestFocusInWindow();
             }
         });
     }
@@ -36,6 +50,7 @@ public class MainFrame extends JFrame {
         SwingUtilities.invokeLater(() -> {
             MainFrame frame = new MainFrame();
             frame.setVisible(true);
+            frame.requestFocusInWindow(); // Устанавливаем фокус на фрейм при отображении
         });
     }
 }
