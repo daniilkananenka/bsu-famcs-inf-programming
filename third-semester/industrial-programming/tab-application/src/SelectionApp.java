@@ -55,8 +55,6 @@ public class SelectionApp extends JFrame {
         add(new JScrollPane(leftList), BorderLayout.WEST);
         add(buttonPanel, BorderLayout.CENTER);
         add(new JScrollPane(rightList), BorderLayout.EAST);
-
-        setVisible(true);
     }
 
     private void moveSelectedItems(JList<String> sourceList, DefaultListModel<String> sourceModel, DefaultListModel<String> targetModel) {

@@ -95,9 +95,27 @@ public class StudentApp {
         int result = fileChooser.showOpenDialog(frame);
         if (result == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            loadStudentsFromFile(file);
+
+            String[] options = {"StAX", "DOM", "txt"};
+            int choice = JOptionPane.showOptionDialog(frame,
+                    "Выберите метод загрузки данных:",
+                    "Выбор метода загрузки",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options,
+                    options[0]);
+
+            if (choice == 0) {
+                loadStudentsFromFileStAX(file);
+            } else if (choice == 1) {
+                loadStudentsFromFileDOM(file);
+            } else {
+                loadStudentsFromFile(file);
+            }
         }
     }
+
 
     private void loadStudentsFromFile(File file) {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {

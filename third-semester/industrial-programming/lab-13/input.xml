@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student>
+        <id>1</id>
+        <surname>Krutko</surname>
+        <course>2</course>
+        <group>2</group>
+    </student>
+    <student>
+        <id>2</id>
+        <surname>Svintilov</surname>
+        <course>2</course>
+        <group>4</group>
+    </student>
+    <student>
+        <id>3</id>
+        <surname>Shuman</surname>
+        <course>2</course>
+        <group>6</group>
+    </student>
+</students>
